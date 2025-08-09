@@ -1,6 +1,5 @@
 "use client";
 import { ReactElement } from "react";
-import {motion } from "motion/react";
 import Tilt from "react-parallax-tilt";
 
 

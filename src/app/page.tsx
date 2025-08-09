@@ -1,12 +1,12 @@
 "use client";
-import { Heading } from "./components/Heading";
-import { ProfileImg } from "./components/profileImg";
-import { ProjectCard } from "./components/ProjectCard";
-import { AllSkills } from "./components/AllSkils";
+import { Heading } from "../components/Heading";
+import { ProfileImg } from "../components/profileImg";
+import { ProjectCard } from "../components/ProjectCard";
+import { AllSkills } from "../components/AllSkils";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { SecondBrain } from "./logo/SecondBrain";
-import { ContactInfo } from "./components/Contact";
+import { SecondBrain } from "../logo/SecondBrain";
+import { ContactInfo } from "../components/Contact";
 
 export default function Home() {
   const text = "Weelcome to My Portfolio";
@@ -43,7 +43,8 @@ export default function Home() {
         |
       </motion.span>
     </motion.h1>
-        <h1 className="font-bold text-3xl font-mono mt-4">I'm Harshit Agrawal</h1>
+        <h1 className="font-bold text-3xl font-mono mt-4">{"I'm Harshit Agrawal"}
+        </h1>
         <p className="mt-4 w-xs font-mono">Full Stack Developer focused on learning through experimentation and product development.</p>
         <ContactInfo />
       </div>
