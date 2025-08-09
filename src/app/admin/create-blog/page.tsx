@@ -56,72 +56,63 @@ export default function CreateBlogPage() {
 
             {/* Blocks */}
             <div className="space-y-4 mb-6">
-                {blocks.map((block, i) => (
-                    <div
-                        key={i}
-                        className="border rounded p-4 shadow-sm bg-gray-50 relative"
-                    >
-                        {/* Remove Button */}
-                        <button
-                            onClick={() => removeBlock(i)}
-                            className="absolute top-2 right-2 text-red-500"
-                        >
-                            ✕
-                        </button>
+                        {blocks.map((block, i) => (
+                            <div
+                                key={i}
+                                className="border rounded p-4 shadow-sm bg-gray-50 relative"
+                            >
 
-                        {/* Render based on type */}
-                        {block.type === "text" && (
-                            <textarea
-                                placeholder="Write your text..."
-                                className="w-full p-2 border rounded"
-                                value={block.content}
-                                onChange={(e) =>
-                                    updateBlock(i, { type: "text", content: e.target.value })
-                                }
-                            />
-                        )}
+                                {/* Render based on type */}
+                                {block.type === "text" && (
+                                    <textarea
+                                        placeholder="Write your text..."
+                                        className="w-full p-2 border rounded"
+                                        value={block.content}
+                                        onChange={(e) =>
+                                            updateBlock(i, { type: "text", content: e.target.value })
+                                        }
+                                    />
+                                )}
 
-                        {block.type === "image" && (
-                            <div className="space-y-2">
-                                <input
-                                    type="text"
-                                    placeholder="Image URL"
-                                    className="w-full p-2 border rounded"
-                                    value={block.url}
-                                    onChange={(e) =>
-                                        updateBlock(i, { ...block, url: e.target.value })
-                                    }
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Alt text (optional)"
-                                    className="w-full p-2 border rounded"
-                                    value={block.alt || ""}
-                                    onChange={(e) =>
-                                        updateBlock(i, { ...block, alt: e.target.value })
-                                    }
-                                />
+                                {block.type === "image" && (
+                                    <div className="space-y-2">
+                                        <input
+                                            type="text"
+                                            placeholder="Image URL"
+                                            className="w-full p-2 border rounded"
+                                            value={block.url}
+                                            onChange={(e) =>
+                                                updateBlock(i, { ...block, url: e.target.value })
+                                            }
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="Alt text (optional)"
+                                            className="w-full p-2 border rounded"
+                                            value={block.alt || ""}
+                                            onChange={(e) =>
+                                                updateBlock(i, { ...block, alt: e.target.value })
+                                            }
+                                        />
+                                    </div>
+                                )}
+
+                                {block.type === "embed" && (
+                                    <input
+                                        type="text"
+                                        placeholder="Embed URL (YouTube, etc.)"
+                                        className="w-full p-2 border rounded"
+                                        value={block.embedUrl}
+                                        onChange={(e) =>
+                                            updateBlock(i, { type: "embed", embedUrl: e.target.value })
+                                        }
+                                    />
+                                )}
                             </div>
-                        )}
-
-                        {block.type === "embed" && (
-                            <input
-                                type="text"
-                                placeholder="Embed URL (YouTube, etc.)"
-                                className="w-full p-2 border rounded"
-                                value={block.embedUrl}
-                                onChange={(e) =>
-                                    updateBlock(i, { type: "embed", embedUrl: e.target.value })
-                                }
-                            />
-                        )}
-                    </div>
-                ))}
+                        ))}
             </div>
 
 
-
-//done
             {/* Add Block Buttons */}
             <div className="flex gap-2 mb-6">
                 <button
@@ -144,9 +135,6 @@ export default function CreateBlogPage() {
                 </button>
             </div>
 
-
-
-//done 
             {/* Save Button */}
             <button
                 onClick={handleSubmit}
